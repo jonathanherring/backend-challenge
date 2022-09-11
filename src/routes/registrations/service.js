@@ -1,6 +1,6 @@
-const { db } = require('../../utils/db')
+// const { db } = require('../../utils/db')
 
-const _registrations = db.collection('testRegs')
+// const _registrations = db.collection('testRegs')
 
 async function getRegistrations() {
   const results = await _registrations.find({}).toArray()
