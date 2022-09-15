@@ -42,8 +42,6 @@ exports.getRegistrationClaimsById = asyncHandler(async (req, res, next) => {
 
     let queryStr = parseQuery(req.query);
 
-    // const registration = await Registration.find({ _id: new mongoose.Types.ObjectId(req.params.registration_id), ...queryStr })
-console.log('queryStr', queryStr)
     const registration = await Registration.aggregate([
         {
             $match: {_id: new mongoose.Types.ObjectId(req.params.registration_id)}
