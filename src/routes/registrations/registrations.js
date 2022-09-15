@@ -1,6 +1,5 @@
 const router = require('express').Router()
-const service = require('./service')
-const {getRegistrations, getRegistrationById, getRegistrationClaimsById, createRegistration} = require('../../controllers/registrations')
+const {getRegistrations, getRegistrationById, getRegistrationClaimsById, getRegistrationAndClaimById, createRegistration} = require('../../controllers/registrations')
 
 
 router.route('/')
@@ -9,15 +8,8 @@ router.route('/')
 
 router.route('/:registration_id').get(getRegistrationById)    
 
-router.route ('/:registration_id/claims').get(getRegistrationClaimsById)
-// router.get('/', async (req, res, next) => {
-//   const registrations = await service.getRegistrations()
-//   res.status(200).json(registrations)
-// })
-// router.post('/', async (req, res, next) => {
-//   const registrations = await service.getRegistrations()
+router.route('/:registration_id/claims').get(getRegistrationClaimsById)
 
-//   res.status(200).json(registrations)
-// })
+router.route('/:registration_id/claims/:claim_id').get(getRegistrationAndClaimById)
 
 module.exports = router

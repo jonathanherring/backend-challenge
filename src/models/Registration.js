@@ -1,9 +1,9 @@
+
 const mongoose = require('mongoose');
 
 const RegistrationSchema = new mongoose.Schema({
-    enrollDate: {
-        date: Date
-    },
+    _id: mongoose.Schema.Types.ObjectID,
+    enrollDate: Date,
     invoiceNumber: String,
     customer: { name: String},
     vehicle: {
@@ -19,16 +19,11 @@ const RegistrationSchema = new mongoose.Schema({
     }],
     claims: [{
         id: Number,
-        callDate: {
-            date: Date
-        },
-        serviceInvoiceDate: {
-            date: Date
-        },
+        callDate: Date,
+        serviceInvoiceDate: Date,
         servicePrice: Number,
         damageReason: String,
         serviceType: String
-
     }]
 })
 
